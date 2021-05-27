@@ -1,20 +1,24 @@
 public class ContaCorrente extends Conta {
 
-    private double limite;
+    protected double limite = 0;
 
     private double getLimite() {
         return this.limite;
     }
 
-    public void setLimite(double limite) {
+    protected void setLimite(double limite) {
         this.limite = limite;
+    }
+
+    public ContaCorrente(int contaNumero, String nomeCliente, String string, double saldo) {
+        super(contaNumero, nomeCliente, string, saldo);
     }
 
     public ContaCorrente(int contaNumero, String nomeCliente, String string, double saldo, double limite) {
         super(contaNumero, nomeCliente, string, saldo);
         this.limite = limite;
-        //TODO Auto-generated constructor stub
     }
+    
 
     @Override
     public boolean sacar(double valorSacado){
