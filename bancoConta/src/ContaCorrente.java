@@ -10,12 +10,12 @@ public class ContaCorrente extends Conta {
         this.limite = limite;
     }
 
-    public ContaCorrente(int contaNumero, String nomeCliente, String cpf, double saldo) {
-        super(contaNumero, nomeCliente, cpf, saldo);
+    public ContaCorrente(int contaNumero, String nomeCliente, String cpf) {
+        super(contaNumero, nomeCliente, cpf);
     }
 
-    public ContaCorrente(int contaNumero, String nomeCliente, String cpf, double saldo, double limite) {
-        super(contaNumero, nomeCliente, cpf, saldo);
+    public ContaCorrente(int contaNumero, String nomeCliente, String cpf,double limite) {
+        super(contaNumero, nomeCliente, cpf);
         this.limite = limite;
     }
     
@@ -29,6 +29,10 @@ public class ContaCorrente extends Conta {
             
             saldo -= valorSacado;
             setSaldo(saldo);
+
+            if(getSaldo() < 0){
+                setLimite(getSaldo() + limite);
+            }
             return true;
 
         }

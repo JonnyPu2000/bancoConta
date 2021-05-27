@@ -2,17 +2,17 @@ public class ContaEspecial extends ContaCorrente {
 
     private String nomeDoGerenteResponsavel;
 
-    public ContaEspecial(int contaNumero, String nomeCliente, String cpf, double saldo, String nomeDoGerenteResponsavel) {
+    public ContaEspecial(int contaNumero, String nomeCliente, String cpf,String nomeDoGerenteResponsavel) {
         
-        super(contaNumero, nomeCliente, cpf, saldo);
+        super(contaNumero, nomeCliente, cpf);
 
         this.nomeDoGerenteResponsavel = nomeDoGerenteResponsavel;
 
     }
 
-    public ContaEspecial(int contaNumero, String nomeCliente, String cpf, double saldo, String nomeDoGerenteResponsavel, int limite) {
+    public ContaEspecial(int contaNumero, String nomeCliente, String cpf, String nomeDoGerenteResponsavel, double limite) {
         
-        super(contaNumero, nomeCliente, cpf, saldo);
+        super(contaNumero, nomeCliente, cpf);
 
         this.nomeDoGerenteResponsavel = nomeDoGerenteResponsavel;
 

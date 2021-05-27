@@ -5,12 +5,12 @@ public abstract class Conta {
     private String cpf;
     private double saldo;
 
-    public Conta(int contaNumero, String nomeCliente, String cpf, double saldo){
+    public Conta(int contaNumero, String nomeCliente, String cpf){
 
         this.contaNumero = contaNumero;
         this.nomeCliente = nomeCliente;
         this.cpf = cpf;
-        this.saldo = saldo;
+        this.saldo = 0;
 
     }
 

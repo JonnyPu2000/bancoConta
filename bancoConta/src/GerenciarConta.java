@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class GerenciarConta {
 
-    ArrayList<Conta> contas = new ArrayList<>();
+    public ArrayList<Conta> contas = new ArrayList<>();
 
     public GerenciarConta(){
+        
+        ArrayList<Conta> contas = new ArrayList<>();
                 
     }
 
@@ -25,24 +27,25 @@ public class GerenciarConta {
             }
 
         }
+        System.out.println("\nConta Inexistente!");
         return false;
 
     }
 
     public String buscarContasEspeciais(){
 
-        String aux = "";
+        String aux = "Contas Especiais\n";
 
         for(Conta ce : contas){
             
             if(ce instanceof ContaEspecial){
 
-                aux += ce.toString();
-
+                aux = aux + ce.toString();
+                
             }
-
         }
         return aux;
+        
     }
 
     public String buscarClientesUsandoLimite(){
@@ -115,7 +118,7 @@ public class GerenciarConta {
 
     }
 
-    public boolean sacar(int numeroConta, double valorDepositado){
+    public boolean sacar(int numeroConta, double valorSacado){
 
         Conta c = buscarConta(numeroConta);
 
@@ -125,7 +128,7 @@ public class GerenciarConta {
             return false;
         }
 
-        return c.sacar(valorDepositado);
+        return c.sacar(valorSacado);
 
     }
 
