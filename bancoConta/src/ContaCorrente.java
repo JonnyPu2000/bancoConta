@@ -2,7 +2,7 @@ public class ContaCorrente extends Conta {
 
     protected double limite = 0;
 
-    private double getLimite() {
+    protected double getLimite() {
         return this.limite;
     }
 
@@ -10,12 +10,12 @@ public class ContaCorrente extends Conta {
         this.limite = limite;
     }
 
-    public ContaCorrente(int contaNumero, String nomeCliente, String string, double saldo) {
-        super(contaNumero, nomeCliente, string, saldo);
+    public ContaCorrente(int contaNumero, String nomeCliente, String cpf, double saldo) {
+        super(contaNumero, nomeCliente, cpf, saldo);
     }
 
-    public ContaCorrente(int contaNumero, String nomeCliente, String string, double saldo, double limite) {
-        super(contaNumero, nomeCliente, string, saldo);
+    public ContaCorrente(int contaNumero, String nomeCliente, String cpf, double saldo, double limite) {
+        super(contaNumero, nomeCliente, cpf, saldo);
         this.limite = limite;
     }
     
@@ -54,7 +54,20 @@ public class ContaCorrente extends Conta {
     @Override
     public String toString(){
 
-        return "Nome Cliente: " + getNomeCliente() +"\nCPF: "+ getCpf()+"\nConta: " +  getContaNumero() + "\nSaldo: "+ getSaldo() + "\nLimite: " + getLimite();
+        String cpf = getCpf();
+        String bloco1 = cpf.substring(0, 3);
+	    String bloco2 = cpf.substring(3, 6);
+	    String bloco3 = cpf.substring(6, 9);
+	    String bloco4 = cpf.substring(9, 11);
+        cpf = bloco1 + "." + bloco2 + "." + bloco3 + "-" + bloco4;
+
+        String contaNumero = "";
+        contaNumero += getContaNumero();
+        String block1 = contaNumero.substring(0,5);
+        String block2 = contaNumero.substring(5,6);
+        contaNumero = block1 + "-" + block2;
+
+        return "\nNome Cliente: " + getNomeCliente() +"\nCPF: "+ cpf+"\nConta: " +  contaNumero + "\nSaldo: R$"+ getSaldo() + "\nLimite: R$" + getLimite() + "\n";
 
 
     }

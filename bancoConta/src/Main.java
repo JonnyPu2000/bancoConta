@@ -1,13 +1,23 @@
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        Conta conta = new ContaCorrente(55355432, "Alexandre Dias", "46765259821", 500.00, 150.00);
+        GerenciarConta gc = new GerenciarConta();
 
-        conta.getNomeCliente();
+        ContaCorrente cc = new ContaCorrente(525368, "Thiago Silas", "46765259821", 15000, 500);
 
-        conta.sacar(650);
+        ContaCorrente ce = new ContaEspecial(521489, "Elianderson Silva", "89612349874", 2000, "Juliette Irineu", 200);
 
-        System.out.println(conta.toString());
+        ContaCorrente ce1 = new ContaEspecial(698741, "Nego Di da Silva", "89612349874", 20, "Rudney Neto", 100);
+
+        gc.adicionarConta(cc);
+        gc.adicionarConta(ce);
+        gc.adicionarConta(ce1);
+
+        System.out.println(gc.buscarContasEspeciais());
+        System.out.println(gc.listarContas());
+
         
     }
+
+    
 }

@@ -59,6 +59,7 @@ public abstract class Conta {
     public boolean depositar(double valorDepositado){
         
         if(valorDepositado <= 0){
+            System.out.println("Não é possivel Depositar um valor menor ou igual a zero!");
             return false;
         }
 
@@ -68,7 +69,20 @@ public abstract class Conta {
 
     public String toString(){
 
-        return "Nome Cliente: " + getNomeCliente() +"\nCPF: "+ getCpf() +"\nConta: " +  getContaNumero() + "\nSaldo: "+ getSaldo();
+        String cpf = getCpf();
+        String bloco1 = cpf.substring(0, 3);
+	    String bloco2 = cpf.substring(3, 6);
+	    String bloco3 = cpf.substring(6, 9);
+	    String bloco4 = cpf.substring(9, 11);
+        cpf = bloco1 + "." + bloco2 + "." + bloco3 + "-" + bloco4;
+
+        String contaNumero = "";
+        contaNumero += getContaNumero();
+        String block1 = contaNumero.substring(0,5);
+        String block2 = contaNumero.substring(5,6);
+        contaNumero = block1 + "-" + block2;
+
+        return "Nome Cliente: " + getNomeCliente() +"\nCPF: "+ cpf +"\nConta: " + contaNumero + "\nSaldo: R$"+ getSaldo() + "\n";
 
     }
     
