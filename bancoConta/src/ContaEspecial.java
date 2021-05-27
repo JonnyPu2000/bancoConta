@@ -20,9 +20,6 @@ public class ContaEspecial extends ContaCorrente {
         
     }
 
-    
-
-
     public String getNomeDoGerenteResponsavel() {
         return this.nomeDoGerenteResponsavel;
     }
